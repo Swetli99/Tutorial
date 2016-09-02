@@ -1,0 +1,57 @@
+.menu {
+    display: inline-block;
+    border-radius: 5px;
+    color: mediumseagreen;
+}
+
+.menu a {
+    color: mediumseagreen;
+}
+.category {
+    display: inline-block;
+    color: mediumseagreen;
+    border-radius: 5px;
+}
+
+.category a {
+    color: mediumseagreen;
+}
+
+.author {
+    display: inline-block;
+    color: mediumseagreen;
+    border-radius: 5px;
+}
+
+.author a {
+    color: black;
+}
+.newPage a {
+    color: mediumseagreen;
+}
+.col {
+    align-content: center;
+    display: inline-block;
+
+}
+
+.col1 {
+    float: left;
+    color: black;
+    width: 33%;
+}
+.col2 {
+    float: left;
+    display: inline-block;
+    color: black;
+    width: 33%;
+ }
+.col3 {
+    float: right;
+    color: black;
+    width: 33%;
+}
+#container {
+    text-align: center;
+    display: inline-block;
+}

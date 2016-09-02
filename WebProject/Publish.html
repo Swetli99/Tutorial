@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publish</title>
+    <link rel="stylesheet" href="Style.css" />
+</head>
+
+<body>
+
+<div align="right">
+
+    <div><img src="apple-1172060_960_720.jpg" width="100" height="70" alt="Logo" align="left" /></div>
+    <h1><i><div align="center" style="color: mediumseagreen;">Безплатни обяви</div></i></h1>
+
+    <div class="menu"><a href="Home.html">Home</a></div>
+    <div class="menu"><a href="Publish.html">Publish</a></div>
+</div>
+<hr>
+
+<textarea id="adText" rows="10">
+Please enter text
+</textarea>
+<br/>
+<input type="button" id="btnPublish" value="Publish">
+
+<br>
+<br>
+
+<span id="msg"></span>
+
+<script>
+    var KINVEY_DEBUG = true;
+</script>
+
+<script src="//da189i1jfloii.cloudfront.net/js/kinvey-html5-1.6.10.js"></script>
+
+<script>
+    Kinvey.init({
+        appKey: 'kid_HkTXE3r9',
+        appSecret: '7eb889cfea76488c8aebca743bc73273'
+    }).then(function(activeUser){
+        if (activeUser == null) {
+            return Kinvey.User.create();
+        }
+    });
+
+    var btn = document.getElementById('btnPublish');
+    btn.addEventListener('click', function() {
+        var adTextArea = document.getElementById('adText');
+        var data = {};
+        data['AdTextColumn'] = adTextArea.value;
+        var save = Kinvey.DataStore.save('Ads', data);
+        save.then(function(success){
+            document.getElementById("msg").innerHTML = "Saving Success";
+            document.location = "Home.html";
+        }, function(error){
+            document.getElementById("msg").innerHTML = "Failed Saving";
+        })
+    })
+
+
+</script>
+
+</body>
+</html>
